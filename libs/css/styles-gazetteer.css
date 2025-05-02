@@ -1,0 +1,391 @@
+
+
+/* Loader Spinner */
+  .loader,
+  .loader:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+  }
+  .loader {
+    font-size: 0.5em;
+    display: inline-block; 
+    vertical-align: top;
+    overflow:hidden; 
+    text-indent: -9999em; 
+    border-top: 1.1em solid rgba(0,215,195,0.2);
+    border-right: 1.1em solid rgba(0,215,195,0.2);
+    border-bottom: 1.1em solid rgba(0,215,195,0.2);
+    border-left: 1.1em solid #00d7c3; /*neon green*/
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+  @-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+  }
+  @keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+  }
+
+#loadingDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fffff5;
+    z-index: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.load-dialog {
+    font-size: 0.7em;
+    display: inline-block; 
+    vertical-align: top;
+}
+
+
+
+
+/* Canonical and General Purpose */
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    background-size: cover;
+    width: 100%;
+    background-color: #fffff5;
+}
+
+nav, navbar {
+    position: fixed;
+    top: 0;
+    min-height: 50px;
+    background-color: #fffff5;
+}
+
+td,th {
+    border: none;
+    text-align: center;  
+}
+
+a:hover, a:active {
+    color: #00d7c3; /*neon green*/
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.breakString {
+    overflow-wrap: anywhere;
+    /*word-wrap: anywhere;*/
+    word-break: break-all;
+}
+
+.noneFound {
+    background-color:#fffff5;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: wrap;
+    overflow-x: auto;
+}
+
+
+
+
+/* Leaflet */
+div#map {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+/* Select Dropdown */
+#selectContainer {
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+    padding: 11px 0;
+}
+
+#countrySelect {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.countrySelectItem {
+    cursor: pointer;
+}
+
+
+
+
+/* Bootstrap Modals */
+.modal-header {
+    background-color:#fffff5;
+}
+
+.modal-body {
+    background-color:#fffff5;
+    overflow: auto;
+}
+
+.btn-close-white {
+    opacity: 0.8; 
+}
+
+.btn-close:hover { 
+    opacity: 1; 
+}
+
+
+
+
+/* Info Modal */
+#infoGrid {
+    width: 100%;
+    background-color: #fffff5;
+}
+
+#infoGrid > .row:nth-child(odd){
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+#infoGrid > .row:nth-child(even){
+    background-color: #F7E7CE; /*Champagne*/
+}
+
+.flag {
+  max-width:20%;
+  height:auto;
+}
+
+#infoGrid .fa {
+    color: #00d7c3; /*neon green*/
+}
+
+#infoGrid .content-overflow {
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+
+
+/* Weather Modal */
+#weatherGrid {
+    background-color: #fffff5;/
+}
+
+.fcastDetails:nth-child(odd){
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+.fcastDetails:nth-child(even){
+    background-color: #F7E7CE; /*Champagne*/
+}
+
+.col.page.active {
+    border: 1px solid black;
+    color: black;
+    background: #fffff5;
+}
+
+.col.page {
+    border: 1px solid #C0C0C0; /*Silver*/
+    color: #C0C0C0; /*Silver*/
+    background: #F9F6EE; /*Bonewhite*/
+}
+
+.weatherPaginate {
+    white-space:nowrap;
+    overflow-x: auto;
+}
+
+#weatherGrid {
+  width: auto;
+  white-space:nowrap;
+  overflow-x: auto;
+}
+
+#forecast {
+  width: 100%;
+}
+
+.text-normal {
+  font-size: 1rem;
+}
+
+
+
+
+/* Currency Modal */
+#currencyGrid {
+    width: 100%;
+    background-color: #fffff5;
+    /*border: 1px solid black;*/
+}
+
+
+
+
+/* Wikipedia Modal */
+#wikiGrid {
+    width: 100%;
+    background-color: #fffff5;
+}
+
+#wikiGrid .row:nth-child(3n-2) {
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+#wikiGrid .row:nth-child(3n-1),
+#wikiGrid .row:nth-child(3n){
+    background-color: #F5F5F5; /*Whitesmoke*/
+}
+
+#wikiGrid .row:nth-child(6n-2) {
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+#wikiGrid .row:nth-child(6n-1),
+#wikiGrid .row:nth-child(6n){
+    background-color: #F8F8FF; /*Ghostwhite*/
+}
+
+
+
+
+/* Radio Modal */
+.playBtn {
+    color: #00d7c3; /*neon green*/
+}
+
+.audioLoad {
+    color: #00d7c3; /*neon green*/
+}
+
+.audioTags {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#playerContainer {
+    background-color: #fffff5;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#resultsContainer:nth-child(odd){
+    background-color: #F7E7CE; /*Champagne*/
+}
+
+#resultsContainer:nth-child(even){
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+
+
+
+/* News Modal */
+#newsGrid {
+    width: 100%;
+    background-color: #fffff5;
+}
+
+#newsGrid .row:nth-child(3n-2),
+#newsGrid .row:nth-child(3n-1),
+#newsGrid .row:nth-child(3n){
+    background-color: #E5E4E2; /*Platinum*/
+}
+
+#newsGrid .row:nth-child(6n-2),
+#newsGrid .row:nth-child(6n-1),
+#newsGrid .row:nth-child(6n){
+    background-color: #F7E7CE; /*Champagne*/
+}
+
+.img-sm {
+    max-width: 150px;
+    height: auto;
+}
+.img-xs {
+    max-width: 40px;
+    height: auto;
+}
+
+
+
+
+/* Focus Button */
+a.focusButton {
+    text-decoration: none;
+}
+
+.button1 {
+    max-width: 200px;
+    padding: 1%;
+    text-align: center;
+    color: #00d7c3; /*neon green*/
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .buttonShine {
+    background-color: transparent;
+    border: 3px solid #00d7c3; /*neon green*/
+    border-radius: 50px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #00d7c3; /*neon green*/
+  }
+  
+  .buttonShine:hover {
+    box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3; /*neon green*/
+    border: 3px solid #00d7c3; /*neon green*/
+  }
+
+
+
+
+/* Error Message */
+#errorStyle {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: wrap;
+    overflow-x: auto;
+}
+

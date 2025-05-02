@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Gazetteer</title>
+    <meta name="robots" content="noindex, nofollow"/>
+    <meta name="description" content="Gazetteer: Data For Exploring The World"/>
+    <meta name="author" content="Lewis Cooper"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <link type="image/x-icon" rel="icon" href="favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="libs/bootstrap-5-3-2/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/fork-awesome-1-2-0/fork-awesome.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/open-weather-icons/open-weather-icons.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/leaflet-1-9-4/leaflet.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/leaflet-easybutton/easy-button.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/leaflet-markercluster-1-1-0/MarkerCluster.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/leaflet-markercluster-1-1-0/MarkerCluster.Default.css"/>
+    <link type="text/css" rel="stylesheet" href="libs/leaflet-extramarkers/css/leaflet.extra-markers.min.css">
+    <link type="text/css" rel="stylesheet" href="libs/css/styles-gazetteer.css"/>
+  </head>
+
+  <body>
+        <!---------LEAFLET---------->
+        <span id="selectContainer">
+          <select id="countrySelect" class="form-select shadow-sm" aria-label="country-selection">
+            <option value="" selected=""></option>
+          </select>
+        </span>
+        <div id="map"></div>
+
+        <noscript>
+          <div class="javascript-disabled">
+              JavaScript is disabled in your browser. Please enable it to view this website.
+          </div>
+        </noscript>
+
+        <!---------INFO---------->
+        <div class="modal fade" id="infoModal" aria-hidden="true" aria-labelledby="infoModalTitle" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="infoModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                    <div id="infoGrid" class="container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---------WEATHER---------->
+        <div class="modal fade" id="weatherModal" aria-hidden="true" aria-labelledby="weatherModalTitle" tabindex="-1">
+          <div class="modal-lg modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="weatherModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div id="weatherPaginate" class="modal-body">
+                  <div id="weatherGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---------CURRENCY---------->
+        <div class="modal fade" id="currencyModal" aria-hidden="true" aria-labelledby="currencyModalTitle" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="currencyModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="currencyGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---------WIKIPEDIA---------->
+        <div class="modal fade" id="wikiModal" aria-hidden="true" aria-labelledby="wikiModalTitle" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="wikiModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="wikiGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---------RADIO---------->
+        <div class="modal fade" id="radioModal" aria-hidden="true" aria-labelledby="radioModalTitle" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="radioModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="radioGrid" class="container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!---------CURRENTS---------->
+        <div class="modal fade" id="newsModal" aria-hidden="true" aria-labelledby="newsModalTitle" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h1 class="modal-title fs-5" id="newsModalTitle"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="newsGrid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+    <script type="application/javascript" src="libs/js/jquery-3.7.1.min.js"></script>
+    <script type="application/javascript" src="libs/bootstrap-5-3-2/js/bootstrap.bundle.min.js"></script>
+    <script type="application/javascript" src="libs/leaflet-1-9-4/leaflet.js"></script>
+    <script type="application/javascript" src="libs/leaflet-easybutton/easy-button.js"></script>
+    <script type="application/javascript" src="libs/leaflet-markercluster-1-1-0/leaflet.markercluster.js"></script>
+    <script type="application/javascript" src="libs/leaflet-extramarkers/js/leaflet.extra-markers.min.js"></script>
+    <script type="module" src="libs/js/gazetteer.js"></script>
+	</body>
+
+</html>
+
