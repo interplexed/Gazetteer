@@ -1,5 +1,8 @@
 # Gazetteer: Data For Exploring The World
 
+>[!NOTE]
+> This was submitted for a project in 2024, with only some minor improvements added since.
+
 ## Description
 A suitable definition of 'gazetteer' is found on [Wikipedia](https://en.wikipedia.org/wiki/Gazetteer):
 > A gazetteer is a geographical dictionary or directory used in conjunction with a map or atlas. 
